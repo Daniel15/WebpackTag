@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackTag.Tests", "src\WebpackTag.Tests\WebpackTag.Tests.csproj", "{D1D12D98-79AB-4751-8F39-A4080781D6F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{A469E0E2-FDA7-49A7-A34C-0BA9DBDB836F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackTag", "src\WebpackTag\WebpackTag.csproj", "{8E936B81-B674-4078-BEE3-5C031C7D67F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackTag.Samples.React", "samples\WebpackTag.Samples.React\WebpackTag.Samples.React.csproj", "{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1D12D98-79AB-4751-8F39-A4080781D6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D12D98-79AB-4751-8F39-A4080781D6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D12D98-79AB-4751-8F39-A4080781D6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D12D98-79AB-4751-8F39-A4080781D6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E936B81-B674-4078-BEE3-5C031C7D67F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E936B81-B674-4078-BEE3-5C031C7D67F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E936B81-B674-4078-BEE3-5C031C7D67F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E936B81-B674-4078-BEE3-5C031C7D67F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED} = {A469E0E2-FDA7-49A7-A34C-0BA9DBDB836F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DEED4A9-D55B-48A4-8432-C5480B4C5742}
+	EndGlobalSection
+EndGlobal
