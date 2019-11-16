@@ -128,13 +128,14 @@ namespace WebpackTag.AssetParsers
 		/// <returns></returns>
 		private (IAssetParser, Uri)? GetParserForUrl()
 		{
-			if (!_env.IsDevelopment())
+			var port = _options.Value.DevServerPort;
+			if (!_env.IsDevelopment() || port == null)
 			{
 				return null;
 			}
 
 			var parser = _availableParsers.First(x => x is AssetManifestParser);
-			return (parser, new Uri($"http://localhost:{_options.Value.DevServerPort}/{parser.DefaultFileName}"));
+			return (parser, new Uri($"http://localhost:{port}/{parser.DefaultFileName}"));
 		}
 	}
 }
