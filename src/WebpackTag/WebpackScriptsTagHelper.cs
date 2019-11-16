@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using WebpackTag.AssetParsers;
 
 namespace WebpackTag
 {
@@ -14,12 +15,12 @@ namespace WebpackTag
 	{
 		private const string EXTENSION = ".js";
 
-		private readonly IWebpackAssets _assets;
+		private readonly IAssetParserFactory _parser;
 		private readonly IHttpContextAccessor _httpContext;
 
-		public WebpackScriptsTagHelper(IWebpackAssets assets, IHttpContextAccessor httpContext)
+		public WebpackScriptsTagHelper(IAssetParserFactory parser, IHttpContextAccessor httpContext)
 		{
-			_assets = assets;
+			_parser = parser;
 			_httpContext = httpContext;
 		}
 
@@ -30,8 +31,10 @@ namespace WebpackTag
 
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
-			var scripts = await _assets.GetPaths(EXTENSION, Entry);
 			output.TagName = null;
+
+			var assets = await _parser.GetAssets();
+			var scripts = assets.GetPaths(EXTENSION, Entry);
 			foreach (var script in scripts)
 			{
 				output.Content.AppendHtml(@"<script src=""");

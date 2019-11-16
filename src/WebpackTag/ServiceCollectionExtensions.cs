@@ -11,12 +11,16 @@ namespace WebpackTag
 		/// </summary>
 		public static IServiceCollection AddWebpackTag(this IServiceCollection services, Action<WebpackTagOptions>? configure = null)
 		{
-			services.AddSingleton<IWebpackAssets, AssetManifest>();
+			services.AddSingleton<IAssetParserFactory, AssetParserFactory>();
+			services.AddSingleton<IAssetParser, AssetManifest>();
+			services.AddHttpClient();
 			services.AddHttpContextAccessor();
+
 			if (configure != null)
 			{
 				services.Configure(configure);
 			}
+
 			return services;
 		}
 	}

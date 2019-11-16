@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using WebpackTag.AssetParsers;
 
 namespace WebpackTag
 {
@@ -14,12 +15,12 @@ namespace WebpackTag
 	{
 		private const string EXTENSION = ".css";
 
-		private readonly IWebpackAssets _assets;
+		private readonly IAssetParserFactory _parser;
 		private readonly IHttpContextAccessor _httpContext;
 
-		public WebpackStylesTagHelper(IWebpackAssets assets, IHttpContextAccessor httpContext)
+		public WebpackStylesTagHelper(IAssetParserFactory parser, IHttpContextAccessor httpContext)
 		{
-			_assets = assets;
+			_parser = parser;
 			_httpContext = httpContext;
 		}
 
@@ -32,7 +33,8 @@ namespace WebpackTag
 		{
 			output.TagName = null;
 
-			var stylesheets = await _assets.GetPaths(EXTENSION, Entry);
+			var assets = await _parser.GetAssets();
+			var stylesheets = assets.GetPaths(EXTENSION, Entry);
 			foreach (var stylesheet in stylesheets)
 			{
 				output.Content.AppendHtml(@"<link rel=""stylesheet"" href=""");
