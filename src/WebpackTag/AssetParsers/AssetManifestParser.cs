@@ -3,6 +3,7 @@ using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using Microsoft.Extensions.Options;
 
 namespace WebpackTag.AssetParsers
 {
@@ -13,6 +14,13 @@ namespace WebpackTag.AssetParsers
 	/// </summary>
 	public class AssetManifestParser : IAssetParser
 	{
+		private readonly IOptions<WebpackTagOptions> _options;
+
+		public AssetManifestParser(IOptions<WebpackTagOptions> options)
+		{
+			_options = options;
+		}
+
 		/// <summary>
 		/// Default file name for this manifest type (eg. "asset-manifest.json")
 		/// </summary>
@@ -21,7 +29,7 @@ namespace WebpackTag.AssetParsers
 		/// <summary>
 		/// Parses the manifest file
 		/// </summary>
-		/// <param name="contents">Contents of the file</param>
+		/// <param name="json">Contents of the file</param>
 		/// <returns>Parsed Webpack assets</returns>
 		public WebpackAssets ParseManifest(string json)
 		{
@@ -30,7 +38,7 @@ namespace WebpackTag.AssetParsers
 				PropertyNameCaseInsensitive = true,
 			});
 			var files = manifest.Entrypoints
-				.Select(path => "/" + path)
+				.Select(path => _options.Value.BaseUrl + path)
 				.GroupBy(path => (Path.GetExtension(path) ?? "").TrimStart('.'))
 				.ToDictionary(x => x.Key, x => x.ToImmutableArray())
 				.ToImmutableDictionary();
