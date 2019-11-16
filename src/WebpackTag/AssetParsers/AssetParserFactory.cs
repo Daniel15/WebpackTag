@@ -26,6 +26,15 @@ namespace WebpackTag.AssetParsers
 		private readonly IMemoryCache _cache;
 		private readonly IHttpClientFactory _httpClientFactory;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AssetParserFactory"/> class.
+		/// </summary>
+		/// <param name="serviceProvider">The service provider.</param>
+		/// <param name="env">The environment.</param>
+		/// <param name="availableParsers">The available parsers.</param>
+		/// <param name="options">The options.</param>
+		/// <param name="cache">The cache.</param>
+		/// <param name="httpClientFactory">The HTTP client factory.</param>
 		public AssetParserFactory(
 			IServiceProvider serviceProvider,
 			IWebHostEnvironment env,

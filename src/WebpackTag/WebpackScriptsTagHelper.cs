@@ -18,6 +18,11 @@ namespace WebpackTag
 		private readonly IAssetParserFactory _parser;
 		private readonly IHttpContextAccessor _httpContext;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WebpackScriptsTagHelper"/> class.
+		/// </summary>
+		/// <param name="parser">The parser factory.</param>
+		/// <param name="httpContext">The HTTP context.</param>
 		public WebpackScriptsTagHelper(IAssetParserFactory parser, IHttpContextAccessor httpContext)
 		{
 			_parser = parser;
@@ -29,6 +34,7 @@ namespace WebpackTag
 		/// </summary>
 		public string Entry { get; set; } = "";
 
+		/// <inheritdoc />
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			output.TagName = null;

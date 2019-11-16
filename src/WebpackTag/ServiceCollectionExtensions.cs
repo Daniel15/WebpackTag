@@ -4,6 +4,9 @@ using WebpackTag.AssetParsers;
 
 namespace WebpackTag
 {
+	/// <summary>
+	/// Handles registration of WebpackTag into the dependency injection container.
+	/// </summary>
 	public static class ServiceCollectionExtensions
 	{
 		/// <summary>

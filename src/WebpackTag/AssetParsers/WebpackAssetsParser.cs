@@ -16,6 +16,10 @@ namespace WebpackTag.AssetParsers
 	{
 		private readonly IOptions<WebpackTagOptions> _options;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WebpackAssetsParser"/> class.
+		/// </summary>
+		/// <param name="options">The options.</param>
 		public WebpackAssetsParser(IOptions<WebpackTagOptions> options)
 		{
 			_options = options;
