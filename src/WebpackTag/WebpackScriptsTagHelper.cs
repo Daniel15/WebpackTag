@@ -13,7 +13,7 @@ namespace WebpackTag
 	[OutputElementHint("script")]
 	public class WebpackScriptsTagHelper : TagHelper
 	{
-		private const string EXTENSION = ".js";
+		private const string EXTENSION = "js";
 
 		private readonly IAssetParserFactory _parser;
 		private readonly IHttpContextAccessor _httpContext;

@@ -13,7 +13,7 @@ namespace WebpackTag
 	[OutputElementHint("link")]
 	public class WebpackStylesTagHelper : TagHelper
 	{
-		private const string EXTENSION = ".css";
+		private const string EXTENSION = "css";
 
 		private readonly IAssetParserFactory _parser;
 		private readonly IHttpContextAccessor _httpContext;

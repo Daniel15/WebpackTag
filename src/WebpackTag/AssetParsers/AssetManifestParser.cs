@@ -10,7 +10,7 @@ namespace WebpackTag.AssetParsers
 	/// <c>webpack-assets-manifest</c> plugin. In production, the file is read from disk.
 	/// In dev, the file is read from the Webpack dev server.
 	/// </summary>
-	public class AssetManifest : IAssetParser
+	public class AssetManifestParser : IAssetParser
 	{
 		/// <summary>
 		/// Default file name for this manifest type (eg. "asset-manifest.json")
@@ -30,7 +30,7 @@ namespace WebpackTag.AssetParsers
 			});
 			var files = manifest.Entrypoints
 				.Select(path => "/" + path)
-				.GroupBy(path => Path.GetExtension(path) ?? "")
+				.GroupBy(path => (Path.GetExtension(path) ?? "").TrimStart('.'))
 				.ToDictionary(x => x.Key, x => x.ToList());
 
 			return new WebpackAssets(new Dictionary<string, WebpackAssets.EntryPoint>

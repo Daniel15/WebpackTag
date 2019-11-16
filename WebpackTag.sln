@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackTag", "src\WebpackTa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebpackTag.Samples.React", "samples\WebpackTag.Samples.React\WebpackTag.Samples.React.csproj", "{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebpackTag.Samples.WebpackAssets", "samples\WebpackTag.Samples.WebpackAssets\WebpackTag.Samples.WebpackAssets.csproj", "{659AF85F-E18D-4BE0-94C7-D67BAEB057DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +31,17 @@ Global
 		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{659AF85F-E18D-4BE0-94C7-D67BAEB057DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659AF85F-E18D-4BE0-94C7-D67BAEB057DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659AF85F-E18D-4BE0-94C7-D67BAEB057DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659AF85F-E18D-4BE0-94C7-D67BAEB057DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{913E7E0C-96B5-42AB-835B-9CCE6332E6ED} = {A469E0E2-FDA7-49A7-A34C-0BA9DBDB836F}
+		{659AF85F-E18D-4BE0-94C7-D67BAEB057DE} = {A469E0E2-FDA7-49A7-A34C-0BA9DBDB836F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DEED4A9-D55B-48A4-8432-C5480B4C5742}

@@ -12,7 +12,8 @@ namespace WebpackTag
 		public static IServiceCollection AddWebpackTag(this IServiceCollection services, Action<WebpackTagOptions>? configure = null)
 		{
 			services.AddSingleton<IAssetParserFactory, AssetParserFactory>();
-			services.AddSingleton<IAssetParser, AssetManifest>();
+			services.AddSingleton<IAssetParser, AssetManifestParser>();
+			services.AddSingleton<IAssetParser, WebpackAssetsParser>();
 			services.AddHttpClient();
 			services.AddHttpContextAccessor();
 

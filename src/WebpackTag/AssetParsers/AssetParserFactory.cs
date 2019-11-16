@@ -124,7 +124,7 @@ namespace WebpackTag.AssetParsers
 				return null;
 			}
 
-			var parser = _availableParsers.First(x => x is AssetManifest);
+			var parser = _availableParsers.First(x => x is AssetManifestParser);
 			return (parser, new Uri($"http://localhost:{_options.Value.DevServerPort}/{parser.DefaultFileName}"));
 		}
 	}
