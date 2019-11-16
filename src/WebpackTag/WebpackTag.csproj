@@ -4,6 +4,19 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Authors>Daniel Lo Nigro</Authors>
+    <Description>ASP.NET Core Tag Helper for Webpack assets. See the site at https://d.sb/webpacktag for docs.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://d.sb/webpacktag</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Daniel15/WebpackTag/</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>webpack-icon.png</PackageIcon>
+    <PackageTags>webpack webpack-dev-server module-bundling webpack-assets-manifest assets-webpack-plugin</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +25,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="images\webpack-icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
