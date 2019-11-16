@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -31,18 +32,14 @@ namespace WebpackTag.AssetParsers
 			var files = manifest.Entrypoints
 				.Select(path => "/" + path)
 				.GroupBy(path => (Path.GetExtension(path) ?? "").TrimStart('.'))
-				.ToDictionary(x => x.Key, x => x.ToList());
+				.ToDictionary(x => x.Key, x => x.ToImmutableArray())
+				.ToImmutableDictionary();
+
 
 			return new WebpackAssets(new Dictionary<string, WebpackAssets.EntryPoint>
-				{
-					{
-						"", new WebpackAssets.EntryPoint
-						{
-							Files = files,
-						}
-					},
-				}
-			);
+			{
+				{"", new WebpackAssets.EntryPoint(files)}
+			}.ToImmutableDictionary());
 		}
 
 		/// <summary>

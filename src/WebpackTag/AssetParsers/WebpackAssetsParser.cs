@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -29,31 +30,29 @@ namespace WebpackTag.AssetParsers
 			var output = new Dictionary<string, WebpackAssets.EntryPoint>();
 			foreach (var (entryPoint, filesByExtension) in manifest)
 			{
-				var outputFiles = new Dictionary<string, List<string>>();
-				output[entryPoint] = new WebpackAssets.EntryPoint
-				{
-					Files = outputFiles,
-				};
+				var outputFiles = new Dictionary<string, ImmutableArray<string>>();
 				foreach (var (extension, files) in filesByExtension)
 				{
 					// This can be either an array (for multiple files), or a string (for one file)
 					switch (files)
 					{
 						case JArray array:
-							outputFiles[extension] = array.Select(x => x.ToString()).ToList();
+							outputFiles[extension] = array.Select(x => x.ToString()).ToImmutableArray();
 							break;
 
 						case string str:
-							outputFiles[extension] = new List<string> { str };
+							outputFiles[extension] = ImmutableArray.Create(str);
 							break;
 
 						default:
 							throw new ArgumentException("Unrecognised webpack-assets format");
 					}
 				}
+
+				output[entryPoint] = new WebpackAssets.EntryPoint(outputFiles.ToImmutableDictionary());
 			}
 
-			return new WebpackAssets(output);
+			return new WebpackAssets(output.ToImmutableDictionary());
 		}
 	}
 }
